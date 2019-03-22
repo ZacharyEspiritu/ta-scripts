@@ -1,27 +1,27 @@
 /**
-* Mails out override codes.
-*
-* Usage: 
-*   1. Check that OVERRIDE_CODES_SPREADSHEET_URL points to a spreadsheet with the override codes;
-*      the format is (the first row is the start of the data, so no table headers permitted):
-*
-*           EMAIL | OVERRIDE_CODE
-*           EMAIL | OVERRIDE_CODE
-*           ...
-*
-*   2. Update the course-specific information included in the email (COURSE_CODE, HTA_EMAIL_ADDRESS,
-*      DEADLINE_TO_USE_OVERRIDE).
-*
-*   3. Run the `mailOverrideCodes` function by selecting it in the above dropdown and pressing the 
-*      Run button. Override codes will be emailed out.
-*
-* Written by zespirit on 09/13/18.
-*
-* Changelog:
-*   - 09/13/18 (zespirit): Initial version for CSCI0190.
-*   - 01/29/19 (zespirit): Updated for CSCI1660.
-*   - 03/22/19 (zespirit): Updated for general use.
-*/
+ * Mails out override codes.
+ *
+ * Usage: 
+ *   1. Check that OVERRIDE_CODES_SPREADSHEET_URL points to a spreadsheet with the override codes;
+ *      the format is (the first row is the start of the data, so no table headers permitted):
+ *
+ *           EMAIL | OVERRIDE_CODE
+ *           EMAIL | OVERRIDE_CODE
+ *           ...
+ *
+ *   2. Update the course-specific information included in the email (COURSE_CODE, HTA_EMAIL_ADDRESS,
+ *      DEADLINE_TO_USE_OVERRIDE).
+ *
+ *   3. Run the `mailOverrideCodes` function by selecting it in the above dropdown and pressing the 
+ *      Run button. Override codes will be emailed out.
+ *
+ * Written by zespirit on 09/13/18.
+ *
+ * Changelog:
+ *   - 09/13/18 (zespirit): Initial version for CSCI0190.
+ *   - 01/29/19 (zespirit): Updated for CSCI1660.
+ *   - 03/22/19 (zespirit): Updated for general use.
+ */
 
 // MODIFY: A link to a Google Spreadsheet containing the override codes.
 const OVERRIDE_CODES_SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/REPLACE-ME/edit";
