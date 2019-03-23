@@ -31,7 +31,7 @@
 #          /course/csXXXX/handin/<assignment-name>
 #
 # Written by: zespirit (heavily based on the old `ksh` extraction script)
-# Last modified on 03/23/2019
+# Last modified on 03/24/2019
 
 ## HEADER
 ## The below lockfile code is attributed to `https://stackoverflow.com/a/
@@ -175,7 +175,10 @@ echo "Entering the grading shell...once you're done, please make sure to run"
 echo "'exit' to leave the grading shell before grading another handin!"
 
 cd "$EXTRACT_DIR"
-PROMPT_COMMAND='PS1="\[$(tput bold)\]\[$(tput setaf 6)\]grading \[$(tput setaf 2)\][\[$(tput setaf 3)\]\u@\[$(tput setaf 3)\]\h \[$(tput setaf 6)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 4)\] \\$ \[$(tput sgr0)\]"; unset PROMPT_COMMAND;' $SHELL
+PROMPT_COMMAND='PS1="\[$(tput bold)\]\[$(tput setaf 6)\]grading \[$(tput setaf 2)\]'
+PROMPT_COMMAND+='[\[$(tput setaf 3)\]\u@\[$(tput setaf 3)\]\h \[$(tput setaf 6)\]\W'
+PROMPT_COMMAND+='\[$(tput setaf 2)\]]\[$(tput setaf 4)\] \\$ \[$(tput sgr0)\]"; '
+PROMPT_COMMAND+='unset PROMPT_COMMAND;' $SHELL
 
 echo "Done grading $ANONYMOUS_ID! To get back to this handin, use the "
 echo "'csXXXX-regrade' command."
