@@ -9,8 +9,8 @@
 # MODIFY: The directory to make the student directories in.
 BASE_DIR="/course/cs1660/student"
 
-# Usage: setupStudentDir <login>
-function setupStudentDir {
+# Usage: make_student_dir <login>
+make_student_dir() {
 	STUDENT_DIR="$BASE_DIR/$1"
 
     if [ -d $STUDENT_DIR ]; then
@@ -31,7 +31,7 @@ fi
 # Create the directories for each student login, as read in from STDIN:
 while read LOGIN; do
     echo "Creating directory for $LOGIN..."
-    setupStudentDir $LOGIN
+    make_student_dir $LOGIN
 done
 
 echo "Complete!"
