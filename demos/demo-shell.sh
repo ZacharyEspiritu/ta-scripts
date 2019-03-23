@@ -11,9 +11,9 @@
 
 # Check that we're not already inside of a demo shell:
 if [ -n "$__IN_DEMO_SHELL__" ]; then
-	echo "Error: Already inside of the a shell. Close the demo shell using the" >&2
-	echo "'exit' command before opening a new shell." >&2
-	exit 1
+    echo "Error: Already inside of the a shell. Close the demo shell using the" >&2
+    echo "'exit' command before opening a new shell." >&2
+    exit 1
 fi
 export __IN_DEMO_SHELL__="true"
 
