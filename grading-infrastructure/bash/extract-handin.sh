@@ -11,15 +11,20 @@
 #   2) open programs automatically that would be helpful when grading
 #   3) etc.
 #
-# Anonymous identifers are generated using the /contrib/bin/bashids
-# program with six alphanumeric characters. The alphabet of characters
-# that can be used as identifiers is "ABCDEFGHIJKLMNPQRSTUVWXYZ23456789"
-# (the letter "O" and the numbers "1" and "0" are omitted as they can be
-# easily confused with other letters).
+# Make sure to update the course-specific directories marked with the
+# "MODIFY" keyword before using this for your own course.
 #
-# This script uses lockfiles that act as mutexes to ensure that no two 
-# graders extract the same handin. See the `exlock` and `unlock` function 
-# calls in the script to see how this is done.
+# NOTES:
+#
+#  - Anonymous identifers are generated using the /contrib/bin/bashids
+#    program with six alphanumeric characters. The alphabet of characters
+#    that can be used as identifiers is "ABCDEFGHIJKLMNPQRSTUVWXYZ23456789"
+#    (the letter "O" and the numbers "1" and "0" are omitted as they can be
+#    easily confused with other letters).
+#
+#  - This script uses lockfiles that act as mutexes to ensure that no two 
+#    graders extract the same handin. See the `exlock` and `unlock` function 
+#    calls in the script to see how this is done.
 #
 # Usage: csXXXX-grade <assignment-name>
 #        - <assignment-name> is the name of an assignment as found in
@@ -51,6 +56,7 @@ unlock()            { _lock u; }   # drop a lock
 
 ### BEGINNING OF SCRIPT ###
 
+# MODIFY: Course-specific directories for the grading infrastructure.
 COURSE_DIRECTORY="/course/cs1660"
 HANDIN_DIRECTORY="$COURSE_DIRECTORY/handin"
 GRADING_DIRECTORY="$COURSE_DIRECTORY/admin/grading"
