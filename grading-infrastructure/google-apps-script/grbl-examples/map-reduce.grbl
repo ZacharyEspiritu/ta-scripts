@@ -1,0 +1,115 @@
+<center><b>Grade Report for MapReduce</b>
+
+<b>Student ID:</b> {{anon-id}}
+<b>Grader:</b> {{grader-login}}</center>
+Detailed feedback on individual grading criteria follow. If you got anything other than the highest rating on a given category, you will also have a comment explaining what you can improve on next time.
+
+{# Functionality #}
+<b>Correctness</b>: {{ag-score}} / {{ag-max}}
+<span style="color: gray;">This section examines the overall correctness of your code and its adherence to the problem statement.</span>
+
+<u>MapReduce</u>
+MapReduce works with word-count example (normal cases): {{func-10}} / 4
+MapReduce works with word-count example (edge cases): {{func-2}} / 4
+
+<u>Anagrams</u>
+Solves normal anagram cases: {{func-6}} / 7
+Output contains unique tags: {{func-7}} / 1
+Output does not contain duplicate tv-pairs: {{func-4}} / 1
+Output handles case-sensitivity: {{func-9}} / 1
+Works on edge cases: {{func-1}} / 2
+
+<u>Nile</u>
+recommend works on normal cases: {{func-3}} / 10
+recommend works on edge cases: {{func-5}} / 2
+popular-pairs works on normal cases: {{func-11}} / 10
+popular-pairs works on edge cases: {{func-8}} / 2
+
+—
+
+<b>Functionality Grade:</b> {{functionality-str}}
+<span style="color: gray;">This is a percentage grade based on your correctness score above. This percentage may be lower than the correctness grade if your grader had to modify your code or final test suite to get it to run, or you used disallowed built-ins in your program.</span>
+
+<u>Comments:</u> {{functionality-comments}}
+
+{# Testing #}
+<b>Wheats Passed</b>: {{wheats-passed}} / {{max-wheats}}
+<span style="color: gray;">Did our correct implementations pass your test suite? This checks that the tests in your final test suite adhered to the problem specification.</span>
+
+—
+
+<b>Chaffs Caught</b>: {{chaff-score}} / {{chaff-max}}
+<span style="color: gray;">Did your test suite catch our buggy implementations? To compute the chaff score, each chaff was separately weighted based on its complexity. The options for each of the below chaffs were {true, false}. (If any wheats did not pass, the chaff score is automatically set to 0 since it means your test suite contained an invalid test case.)</span>
+
+- map-reduce-all-tags-same.arr caught? {{bool-chaff-1}}
+- map-reduce-case-insensitive.arr caught? {{bool-chaff-2}}
+- map-reduce-duplicate-copies-of-tags.arr caught? {{bool-chaff-3}}
+- map-reduce-each-document-separate.arr caught? {{bool-chaff-4}}
+- map-reduce-each-tag-unique.arr caught? {{bool-chaff-5}}
+- map-reduce-missing-last-tag.arr caught? {{bool-chaff-6}}
+- map-reduce-no-reducer.arr caught? {{bool-chaff-7}}
+- map-reduce-one-extra-pair.arr caught? {{bool-chaff-8}}
+- map-reduce-only-use-first-found-tag.arr caught? {{bool-chaff-9}}
+- map-reduce-only-use-first-tag-in-each-category.arr caught? {{bool-chaff-10}}
+- map-reduce-recommendation-off-by-1.arr caught? {{bool-chaff-11}}
+- map-reduce-with-duplicates.arr caught? {{bool-chaff-12}}
+- nile-map-reduce-adds-all-books.arr caught? {{bool-chaff-13}}
+- nile-map-reduce-adds-one-to-pair-count.arr caught? {{bool-chaff-14}}
+- nile-map-reduce-counts-self.arr caught? {{bool-chaff-15}}
+- nile-map-reduce-duplicate-pairs.arr caught? {{bool-chaff-16}}
+- nile-map-reduce-extra-spaces-in-pairs.arr caught? {{bool-chaff-17}}
+- nile-map-reduce-incorrectly-counts-books.arr caught? {{bool-chaff-18}}
+- nile-map-reduce-missing-recursion.arr caught? {{bool-chaff-19}}
+- nile-map-reduce-off-by-1.arr caught? {{bool-chaff-20}}
+- nile-map-reduce-only-first-book-gets-paired.arr caught? {{bool-chaff-21}}
+- nile-map-reduce-only-returns-one-book.arr caught? {{bool-chaff-22}}
+- nile-map-reduce-order-insensitive.arr caught? {{bool-chaff-23}}
+- nile-map-reduce-self-pair.arr caught? {{bool-chaff-24}}
+
+—
+
+<b>Organization and Style of Tests on Required Functions</b>: {{required-tests}}
+<span style="color: gray;">The options were {excellent, solid, mostly-fine, weak, missing}.</span>
+
+<b>Testing of Helpers</b>: {{helper-tests}}
+<span style="color: gray;">The options were {excellent, solid, mostly-fine, weak, missing}.</span>
+
+—
+
+<b>Testing Grade:</b> {{testing-override}}
+<span style="color: gray;">The options were {check+, high-check, check, check–, no-check}.</span>
+
+<u>Comments:</u> {{testing-comments}}
+
+{# Style #}
+<b>Overall Problem Approach</b>: {{approach-eval}}
+<span style="color: gray;">The options were {excellent, solid, mostly-fine, fine, weak}.</span>
+
+<b>Code Reuse and Use of Helpers</b>: {{helper-eval}}
+<span style="color: gray;">The options were {excellent, solid, mostly-fine, fine, weak}.</span>
+
+<b>Formatting and Readability</b>: {{formatting-eval}}
+<span style="color: gray;">The options were {excellent, solid, mostly-fine, fine, weak}.</span>
+
+—
+
+<b>Style Grade:</b> {{style-override}}
+<span style="color: gray;">The options were {check+, high-check, check, check–, no-check}.</span>
+
+<u>Comments:</u> {{style-comments}}
+
+{# Analysis #}
+<b>Correctness of Analysis:</b> {{analysis-score}} / 8
+<span style="color: gray;">This section examines the correctness of your answers to the analysis questions in the problem statement. If points were taken off, your grader will have explained the deductions in their comments below.</span>
+
+- Reasonable explanation for applications of JoinLists in MapReduce: {{combined-analysis}} / 3
+- Identifies a reasonable application of MapReduce: {{problem-analysis}} / 5
+
+—
+
+<b>Analysis Score:</b> {{analysis-score}} / 8
+
+<u>Comments:</u> {{analysis-comments}}
+
+{# Overall #}
+<u>General Comments:</u> {{general-feedback}}
