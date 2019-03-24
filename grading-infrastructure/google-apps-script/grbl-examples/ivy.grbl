@@ -1,0 +1,39 @@
+<center><b>Grade Report for Cryptography: Ivy (CS166)</b>
+
+<b>Student ID:</b> {{anon-id}}
+<b>Grader:</b> {{grader-login}}</center>
+Detailed feedback on individual grading criteria follow. If your handin got anything other than the highest rating on a given category, your grader will have left a comment explaining why at the bottom of the report.
+
+This is for the CS166 version of the Cryptography: Ivy project (not the CS162 version). Please contact the HTAs if you believe this is in error.
+
+{# KEY #}
+<b>KEY file is correct</b>: ({{key-points}}/70) {{key-correct}}
+<span style="color: gray;">If “Yes”, your submitted KEY file contained the correct key for your Ivy binary.</span>
+
+<u>Comments</u>: {{key-comments}}
+
+{# README #}
+<b>Question 1</b>: {{q1-designation}}
+<span style="color: gray;">This evaluates your answer to the question "Explain in detail how your attack works. Your explanation should be detailed enough to convince somebody who has only read the specification of the protocol that your attack will work.”.</span>
+
+<u>Comments</u>: {{q1-comments}}
+
+—
+
+<b>Question 2</b>: {{q2-designation}}
+<span style="color: gray;">This evaluates your answer to the question "Describe the vulnerability that made your attack possible, and discuss whether your attack (or a similar one) would have been possible without the vulnerability.”.</span>
+
+<u>Comments</u>: {{q2-comments}}
+
+—
+
+<b>Question 3</b>: {{q3-designation}}
+<span style="color: gray;">This evaluates your answer to the question "Discuss how the vulnerability could be fixed.”.</span>
+
+<u>Comments</u>: {{q3-comments}}
+
+{# Overall #}
+<b>Ivy Grade:</b> {{final-score}} / 100
+<span style="color: gray;">This is the final recorded grade for the Ivy component of the Cryptography project. For CS166 students, this counts for ⅓ of the final Cryptography project grade; for CS162 students, this counts for ⅕ of the final Cryptography project grade.</span>
+
+<u>Comments</u>: {{overall-comments}}
