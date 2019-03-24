@@ -1,0 +1,18 @@
+<center><b>Grade Report for Warmup</b>
+
+<b>Student ID:</b> {{anon-id}}
+<b>Grader:</b> {{grader-login}}</center>
+Detailed feedback on individual grading criteria follow. If your handin got anything other than the highest rating on a given category, your grader will have left a comment explaining why at the bottom of the report.
+
+{# Functionality #}
+<b>Autograder Score</b>: {{autograde-total}} / 100
+<span style="color: gray;">This section scores the overall correctness of your Warmup handin after an autograder ran your program several times against multiple target numbers.</span>
+
+<b>Adjusted Score</b>: {{actual-total}} / 100
+<span style="color: gray;">If there were any discrepancies when we autograded your handin, your grader manually examined it and adjusted your score here. Otherwise, this will be the same as your “Autograder Score”.</span>
+
+{# Overall #}
+<b>Final Grade:</b> {{final-score}} / 100
+<span style="color: gray;">This is the final recorded grade for this project computed from the “Adjusted Score” above.</span>
+
+<u>Comments</u>: {{overall-comments}}
