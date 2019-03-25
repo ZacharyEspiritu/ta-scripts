@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Anonymously extracts a student's assignment. 
+# Anonymously extracts a student's assignment for the purposes of grading.
 # 
 # Extracting a student's assignment will place you in a "grading shell", 
 # which is, by default, just a fancy prompt that makes it obvious to 
