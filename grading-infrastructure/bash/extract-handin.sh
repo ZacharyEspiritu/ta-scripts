@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Extracts a student's handin for a given assignment.
+#
+# Helpful for a one-time check for a student, or perhaps to be used in a larger
+# script.
+#
+# Written by zespirit on 03/25/19
+# Last modified on 03/25/19
+
 # MODIFY: Course-specific directories.
 HANDIN_DIRECTORY="/course/cs1660/handin"
 
