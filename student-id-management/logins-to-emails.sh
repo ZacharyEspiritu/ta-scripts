@@ -8,8 +8,8 @@
 # Last modified: 03/22/2019
 
 while read STUDENT_LOGIN; do
-    local STUDENT_EMAIL=$(ldapsearch name="$STUDENT_LOGIN" -Q | \
-                          grep "mail: " | \
-                          cut -f2 -d " ")
+    STUDENT_EMAIL=$(ldapsearch name="$STUDENT_LOGIN" -Q | \
+                    grep "mail: " | \
+                    cut -f2 -d " ")
     echo $STUDENT_EMAIL
 done
