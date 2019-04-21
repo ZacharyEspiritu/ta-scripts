@@ -134,15 +134,38 @@
  * provided with this script for more information.
  */
 
-const CONTROL_SPREADSHEET = ""; // NOT YET IMPLEMENTED
+const CONTROL_SPREADSHEET_URL = "REPLACEME";
+const CONTROL_SHEET_NAME      = "Control";
+
+const ASSIGNMENT_NAME = "REPLACEME";
 
 function sendGradeReports() {
-  var emailSettingsUrl       = "https://docs.google.com/spreadsheets/d/REPLACEME/edit";
-  var mappingsSpreadsheetUrl = "https://docs.google.com/spreadsheets/d/REPLACEME/edit";
-  var gradingSpreadsheetUrl  = "https://docs.google.com/spreadsheets/d/REPLACEME/edit";
-  var reportTemplateUrl      = "https://docs.google.com/document/d/REPLACEME/edit";
-
-  var ASSIGNMENT_NAME        = "Assignment Name";
+  // Open up the Control Spreadsheet:
+  var controlSS    = SpreadsheetApp.openByUrl(CONTROL_SPREADSHEET_URL);
+  var controlSheet = controlSS.getSheetByName(CONTROL_SHEET_NAME);
+  var controlRange = controlSheet.getRange("A2:E10000").getValues();
+  
+  // Look for the assignment information in the spreadsheet:
+  var assignmentFound = false;
+  var emailSettingsUrl, mappingsSpreadsheetUrl, gradingSpreadsheetUrl, reportTemplateUrl;
+  for (var i = 0; i < controlRange.length; i++) {
+    var asgnRow  = controlRange[i];
+    var asgnName = asgnRow[0];
+    if (asgnName == ASSIGNMENT_NAME) {
+      assignmentFound        = true;
+      emailSettingsUrl       = asgnRow[1];
+      mappingsSpreadsheetUrl = asgnRow[2];
+      gradingSpreadsheetUrl  = asgnRow[3];
+      reportTemplateUrl      = asgnRow[4];
+      break;
+    }
+  }
+  
+  // If we weren't able to find the assignment, raise an error:
+  if (!assignmentFound) {
+     throw "Assignment " + ASSIGNMENT_NAME + " not found in Control Spreadsheet (" + CONTROL_SPREADSHEET_URL + ")";
+  }
+  
   var REVISIONS_ONLY = false;
   var REVISED_TITLE = false;
   var ONLY_IDS = [];
