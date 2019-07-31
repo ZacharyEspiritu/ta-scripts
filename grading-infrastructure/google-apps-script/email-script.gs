@@ -25,7 +25,7 @@
  *               breaking HTML-related comments in CSCI1660.
  *
  *
- * Control Spreadsheet (NOT YET IMPLEMENTED)
+ * Control Spreadsheet
  * -------------------
  *
  * The CONTROL_SPREADSHEET constant defines the URL to the "control
@@ -134,17 +134,42 @@
  * provided with this script for more information.
  */
 
+// MODIFY: See "Control Spreadsheet" above. The URL points to a Google
+// Spreadsheet; the "sheet name" should be set to the name of the sheet in that
+// spreadsheet that contains the control data.
 const CONTROL_SPREADSHEET_URL = "REPLACEME";
 const CONTROL_SHEET_NAME      = "Control";
 
+// MODIFY: The name of the assignment being emailed out.
 const ASSIGNMENT_NAME = "REPLACEME";
+
+// MODIFY: If `true`, sends grades to all students.
+const SEND_EMAILS = false;
+
+// MODIFY: If `true`, sends a single test email to the email address specified.
+// The test email's contents are taken from the row of the first student to be
+// emailed.
+const SEND_SINGLE_TEST_EMAIL = false;
+const TEST_EMAIL = "replaceme@brown.edu";
+
+// MODIFY: If `ONLY_IDS` is non-empty, then the student identifers in that array
+// are the only identifiers to be emailed out. If `IGNORED_IDS` is non-empty,
+// then every row is emailed except for those rows containing student
+// identifiers in the array. (At most one of `ONLY_IDS` and `IGNORED_IDS` should
+// be non-empty.)
+const ONLY_IDS = [];
+const IGNORED_IDS = [];
+
+// [DEPRECATED]: Legacy option. Use `ONLY_IDS` or `IGNORED_IDS` instead.
+const REVISIONS_ONLY = false;
+const REVISED_TITLE = false;
 
 function sendGradeReports() {
   // Open up the Control Spreadsheet:
   var controlSS    = SpreadsheetApp.openByUrl(CONTROL_SPREADSHEET_URL);
   var controlSheet = controlSS.getSheetByName(CONTROL_SHEET_NAME);
   var controlRange = controlSheet.getRange("A2:E10000").getValues();
-  
+
   // Look for the assignment information in the spreadsheet:
   var assignmentFound = false;
   var emailSettingsUrl, mappingsSpreadsheetUrl, gradingSpreadsheetUrl, reportTemplateUrl;
@@ -160,21 +185,11 @@ function sendGradeReports() {
       break;
     }
   }
-  
+
   // If we weren't able to find the assignment, raise an error:
   if (!assignmentFound) {
      throw "Assignment " + ASSIGNMENT_NAME + " not found in Control Spreadsheet (" + CONTROL_SPREADSHEET_URL + ")";
   }
-  
-  var REVISIONS_ONLY = false;
-  var REVISED_TITLE = false;
-  var ONLY_IDS = [];
-
-  var IGNORED_IDS = [];
-
-  var TEST_EMAIL = "zachary_espiritu@brown.edu";
-  var SEND_SINGLE_TEST_EMAIL = true;
-  var SEND_EMAILS = false;
 
   // Open mappings spreadsheet:
   var mappingsSS = SpreadsheetApp.openByUrl(mappingsSpreadsheetUrl);
