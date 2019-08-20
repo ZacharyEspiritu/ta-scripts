@@ -11,3 +11,7 @@ Most scripts include various tips or documentation on how to best use the script
 * [protected-student-directories](protected-student-directories) — Scripts helpful for managing and creating "protected student directories" in your `/course` directory.
 * [security](security) — Scripts related to keeping things secure.
 * [student-id-management](student-id-management) — Scripts relevant to the management of student identifiers (email addresses, CS logins, Banner IDs, etc.). Note that this category doesn't include anonymization of students (which is more relevant in a grading-related topic).
+
+## Other Resources
+
+* [FUSE Installation Instructions](https://github.com/sandyharvie/FUSE-Installation-Instructions/wiki/FUSE-Installation-Instructions) — A guide by [@sandyharvie](https://github.com/sandyharvie) on using `sshfs` to remotely edit files on the department filesystem; you might find this a more convenient and smooth alternative to `ssh` or programs like Cyberduck.
