@@ -2,22 +2,78 @@
 
 # Generates lab assignments from a list of student preferences.
 #
-# Documentation TODO.
-#
 # Written by: zespirit
-# Last modified on 08/24/2019
+# Last modified on 08/25/2019
+#
+#
+# Usage
+# -----
+#
+# 1) Replace the LAB_DEFINITIONS constant below with a hash where each key is
+#    the "name" of a lab section and the value is a hash denoting the minimum
+#    and maximum number of students that should be assigned to that lab section.
+#
+# 2) Create a Google Form. One question should collect a unique student
+#    identifier (ex: a CS login, an email address). Then, create a drop-down
+#    question where all of the answer choices match the "names" of the lab
+#    sections placed in the LAB_DEFINITIONS constant. This represents the
+#    student's preference for lab section.
+#
+# 3) If you want to allow students to mark more than one preference, you can
+#    create multiple drop-down questions where all of the answer choices match
+#    the "names" of the lab sections in the LAB_DEFINITIONS constant---make
+#    sure that each question has a different title (ex: "First choice",
+#    "Second choice", etc.)
+#
+# 4) Once all responses are in, download the form responses as a *.csv.
+#
+# 5) Update the STUDENT_IDENTIFIER constant below with the name of the column
+#    in the CSV that matches the unique identifier for each student. Also,
+#    update the CHOICE_PRIORITIES constant below with the names of each column
+#    in the CSV that correspond to lab preferences, and a number representing
+#    the "preference priority" to give to that column. For example, the highest
+#    preference column should be given a 1, then the next preference column
+#    should be given a 2, etc.
+#
+# 6) You can then run the script from the terminal with the following command:
+#
+#      ./lab-allocations.rb <downloaded-csv-name> <output-csv-location>
+#
+#    where <downloaded-csv-name> is the path to the *.csv you downloaded and
+#    <output-csv-location> is the location to output the lab assignments to.
+#    Any students who could not be immediately assigned a lab section from
+#    their preferences will be placed in an "__UNASSIGNED__" column in the
+#    output csv.
+#
+#
+# Notes
+# -----
+#
+# * The script uses a first-fit bucket filling algorithm when assigning
+#   preferences. This means that students who appear earlier in the input csv
+#   will have their lab section assigned before students who appear later in the
+#   csv. You might use this as a way to incentive students to fill in the form
+#   early. If giving priority to students who filled in the form early is
+#   something you wish to avoid, you can randomize the list of students in the
+#   csv before running the script.
+#
+# * The script does not guarantee completeness of assignments - that is, certain
+#   edge case preferences may result in a student being unassigned if no lab
+#   sections were available that matched any of their preferences.
+#
 
 require 'csv'
 
-LAB_DEFINITIONS = {
-  "Monday 3-5pm" => {min: 15, max: 24},
-  "Monday 8-10pm" => {min: 15, max: 24},
-  "Wednesday 4-6pm" => {min: 15, max: 24},
-  "Wednesday 7-9pm" => {min: 15, max: 24},
-  "Cannot attend any remaining lab sections" => {min: 0, max: 0}
-}
+##
+## Constants
+##
 
-UNASSIGNED_LAB_NAME = "__UNASSIGNED__"
+LAB_DEFINITIONS = {
+  "Monday 3-5pm" => {min: 12, max: 18},
+  "Monday 8-10pm" => {min: 15, max: 24},
+  "Wednesday 4-6pm" => {min: 12, max: 18},
+  "Wednesday 7-9pm" => {min: 15, max: 24},
+}
 
 STUDENT_IDENTIFIER = "CS Login"
 CHOICE_PRIORITIES = {
@@ -25,6 +81,10 @@ CHOICE_PRIORITIES = {
   "Second choice" => 2,
   "Third choice" => 3
 }
+
+# You shouldn't need to modify this. Only modify if the current value of
+# UNASSIGNED_LAB_NAME conflicts with any lab name in LAB_DEFINITIONS.
+UNASSIGNED_LAB_NAME = "__UNASSIGNED__"
 
 ##
 ## Custom Classes
