@@ -25,6 +25,13 @@
  *               breaking HTML-related comments in CSCI1660.
  *
  *
+ * ==================
+ * Spreadsheet System
+ * ==================
+ *
+ * Several spreadsheets are used to control the behavior of the email script.
+ *
+ *
  * Control Spreadsheet
  * -------------------
  *
@@ -34,8 +41,8 @@
  * to find the anonymous ID mapping spreadsheet, grading spreadsheet, and
  * report template for a given assignment.
  *
- * The first row in the control spreadsheet may be a header row; this row will
- * be ignored by the script.
+ * The first row in the control spreadsheet may be a header row (the first row
+ * of the spreadsheet will be ignored by the script).
  *
  * All subsequent rows must follow the following column order:
  *
@@ -57,8 +64,9 @@
  * TODO
  *
  *
+ * ================
  * Report Templates
- * ----------------
+ * ================
  *
  * A "report template" is a Google Document written in GRBL (pronounced
  * "gerbil"), the "Grade Report Building Language". GRBL is a superset of
