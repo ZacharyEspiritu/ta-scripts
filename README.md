@@ -15,4 +15,10 @@ Most scripts include various tips or documentation on how to best use the script
 
 ## Other Resources
 
+* [ta-scripts Wiki](https://github.com/ZacharyEspiritu/ta-scripts/wiki) — Various notes on using the scripts / department systems.
 * [FUSE Installation Instructions](https://github.com/sandyharvie/FUSE-Installation-Instructions/wiki/FUSE-Installation-Instructions) — A guide by [@sandyharvie](https://github.com/sandyharvie) on using `sshfs` to remotely edit files on the department filesystem; you might find this a more convenient and smooth alternative to `ssh` or programs like Cyberduck.
+
+## Helpful Programs
+
+* [pandoc](https://pandoc.org/) — A universal document converter. Imagine being able to write all of your handouts (or personal homeworks) in Markdown; then simply running a command that generates a LaTeX PDF from that Markdown file. You'd never have to touch raw LaTeX again! (Pandoc does all that for you, and more.)
+* [proselint](http://proselint.com/) — A linter for prose. Not a grammar checker, but rather "a tool so precise that it becomes possible to unquestioningly adopt its recommendations". Very helpful when writing handouts or checking your own writing.
