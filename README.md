@@ -22,3 +22,6 @@ Most scripts include various tips or documentation on how to best use the script
 
 * [pandoc](https://pandoc.org/) — A universal document converter. Imagine being able to write all of your handouts (or personal homeworks) in Markdown; then simply running a command that generates a LaTeX PDF from that Markdown file. You'd never have to touch raw LaTeX again! (Pandoc does all that for you, and more.)
 * [proselint](http://proselint.com/) — A linter for prose. Not a grammar checker, but rather "a tool so precise that it becomes possible to unquestioningly adopt its recommendations". Very helpful when writing handouts or checking your own writing.
+* [aspell](http://aspell.net/) — A command-line spell checker with a mostly intuitive word correction interface; claims to be better than any spell checker out there. ([@ZacharyEspiritu]: I find this much easier to integrate into my writing process rather than copy and pasting text into a word processor. Additionally, since it exists on the command-line, it's easily used in conjunction with other document preparation programs like `pandoc` and `proselint`.)
+
+[@ZacharyEspiritu]: https://github.com/ZacharyEspiritu
