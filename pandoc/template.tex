@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt,letterpaper]{article}
+
+%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}               % Environments, etc. for typesetting math.
+\usepackage{amsthm}                % Theorem/proof environments.
+\usepackage{amssymb}               % Various symbols.
+\usepackage{geometry}              % Easy interface to set page margins.
+\usepackage{fancyhdr}              % Custom headers/footers, page styles.
+\usepackage[shortlabels]{enumitem} % Stuff for enumerate & itemize environments.
+\usepackage{titlesec}              % Used to resize section headers.
+\usepackage{longtable,booktabs}    % Used for better tables.
+\usepackage{hyperref}
+
+%%%%%%%%%% VARIOUS HOUSEKEEPING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\geometry{margin=3cm}              % Sets margins on all sides.
+\pagestyle{fancyplain}             % Sets page style.
+\headheight 35pt                   % Sets the height of the header.
+\headsep    20pt                   % Sets space between the header and the body.
+
+\setlength{\parindent}{0em}        % Sets paragraph indentation.
+\setlength{\parskip}{0.5em}        % Sets space between paragraphs.
+
+\setlist[enumerate]{leftmargin=*}  % Normalize left margin in enumerate.
+\setlist[itemize]{leftmargin=*}    % Normalize left margin in itemize.
+
+%%%%%%%%%% PANDOC HOUSEKEEPING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\tightlist{}            % Pandoc inserts this into list definitions;
+                                   % we don't want so we just define empty macro.
+\setcounter{secnumdepth}{0}        % Disable section numbering.
+
+% Make every section header one step smaller.
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+\titleformat*{\paragraph}{\normalsize\bfseries}
+\titleformat*{\subparagraph}{\normalsize\bfseries}
+
+%%%%%%%%%% ASSIGNMENT INFORMATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\course{$if(course)$$course$$endif$}       % <-- the course
+\newcommand\semester{$if(semester)$$semester$$endif$} % <-- the current semester
+\newcommand\hwnum{$if(hw_number)$$hw_number$$endif$}  % <-- homework number
+
+%%%%%%%%%% HEADER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lhead{\course{}}
+\chead{\textbf{\Large Homework \hwnum{}}}
+\rhead{\semester{}}
+
+%%%%%%%%%% CUSTOM THINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+$for(custom_commands)$
+$if(custom_commands.name)$
+\newcommand{$custom_commands.name$}{$custom_commands.code$}
+$endif$
+$endfor$
+
+% Add your own commands!
+
+% Here are some examples that your TAs find helpful.
+% Un-comment any or all of them to use. They all are to be used in math mode.
+
+% \newcommand{\N}{\mathbb{N}}         % The set of natural numbers
+% \newcommand{\Z}{\mathbb{Z}}         % The set of integers
+% \newcommand\lcm{\operatorname{lcm}} % Least common multiple
+% \newcommand\Pow{\ensuremath{\operatorname{\mathcal{P}}}}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Power set (|\Pow(\{1\})| = 2).
+% \newcommand\setbuilder[2]{\ensuremath{\left\{#1\;\middle|\;#2\right\}}}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Set-builder notation.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  (A^{c} = \setbuilder{x}{x \not\in A})
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The document is everything between \begin{document} and \end{document}.
+% It contains everything that will show up in the output pdf file,
+% besides the header (which is defined above, and appears on every page).
+
+\begin{document}
+
+% \newpage
+
+% \begin{center}
+%     \newcommand{\GradeTableHeader}[1]{\quad\textbf{#1}\quad\mbox{}}
+%     \renewcommand*{\arraystretch}{1}
+
+%     {\huge \course{} Homework}\\
+
+%     \Large
+%     \begin{align*}
+%         \text{\textbf{HW}}&:
+% 	\text{\underline{\hwnum}} \\
+%     \end{align*}
+% \end{center}
+
+\newpage
+
+$body$
+
+\end{document}
